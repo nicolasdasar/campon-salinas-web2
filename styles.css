@@ -313,24 +313,12 @@ nav.scrolled{background:rgba(35,30,26,.96);backdrop-filter:blur(20px);border-bot
 
 /* ═══ MAP ═══ */
 #mapa{padding:0;background:var(--bg-deep)}
-.map-wrap{position:relative;overflow:hidden}
-.map-click-wrapper{display:block;position:relative;height:420px;overflow:hidden;cursor:pointer;text-decoration:none}
-.map-click-wrapper img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.4) contrast(1.05);transition:filter .5s,transform .6s}
-.map-click-wrapper:hover img{filter:grayscale(0) contrast(1);transform:scale(1.02)}
-.map-lbl{position:absolute;top:20px;right:var(--side-pad);z-index:10;background:rgba(35,30,26,.92);backdrop-filter:blur(10px);padding:18px 24px;border-left:3px solid var(--gold);color:white}
+.map-wrap{position:relative}
+.map-wrap iframe{width:100%;height:480px;border:none;display:block;filter:grayscale(.3) contrast(1.05);transition:filter .5s}
+.map-wrap:hover iframe{filter:grayscale(0) contrast(1)}
+.map-lbl{position:absolute;bottom:28px;left:var(--side-pad);z-index:10;background:rgba(35,30,26,.92);backdrop-filter:blur(10px);padding:18px 24px;border-left:3px solid var(--gold);color:white}
 .map-lbl h3{font-family:var(--font-display);font-size:1.05rem;font-weight:600;margin-bottom:3px}
 .map-lbl p{font-size:.76rem;color:var(--text-dim)}
-/* Google-style place card overlay */
-.map-overlay-card{position:absolute;bottom:28px;left:var(--side-pad);z-index:10;background:white;border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,.18);display:flex;align-items:center;gap:0;overflow:hidden;max-width:340px;transition:box-shadow .3s}
-.map-click-wrapper:hover .map-overlay-card{box-shadow:0 8px 36px rgba(0,0,0,.28)}
-.map-card-img{width:70px;height:70px;flex-shrink:0;overflow:hidden}
-.map-card-img img{width:100%;height:100%;object-fit:cover;display:block}
-.map-card-info{padding:10px 14px;flex:1}
-.map-card-info strong{display:block;font-size:.85rem;font-weight:700;color:#1a1a1a;margin-bottom:3px}
-.map-card-info span{font-size:.72rem;color:#666;line-height:1.4}
-.map-card-arrow{padding:0 14px;font-size:1.1rem;color:var(--gold);font-weight:700;flex-shrink:0}
-.map-click-hint{position:absolute;top:20px;left:50%;transform:translateX(-50%);background:rgba(35,30,26,.85);backdrop-filter:blur(8px);color:rgba(255,255,255,.8);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:8px 18px;border:1px solid var(--gold-dim);transition:opacity .3s;pointer-events:none;opacity:0}
-.map-click-wrapper:hover .map-click-hint{opacity:1}
 
 /* ═══ CONTACTO ═══ */
 #contacto{padding:var(--section-pad) var(--side-pad);background:var(--cream)}
@@ -386,8 +374,8 @@ footer{padding:45px var(--side-pad);background:var(--bg-deep);text-align:center;
         .pay-tl{grid-template-columns:1fr}.pay-tabs{flex-direction:column;align-items:stretch}
         .units-grid{grid-template-columns:1fr}
         .ct-form{padding:22px}
-        .map-click-wrapper{height:300px}
-        .map-lbl{position:relative;top:auto;right:auto;padding:16px var(--side-pad);border-radius:0;border-left:none;border-top:3px solid var(--gold)}
+        .map-wrap iframe{height:320px}
+        .map-lbl{position:relative;bottom:auto;left:auto;padding:16px var(--side-pad)}
         .mini-carousel{aspect-ratio:16/11}
     }
     @media(max-width:480px){
