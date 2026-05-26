@@ -360,13 +360,11 @@ function switchPay(opt) {
     if (opt === 'a') {
         a.classList.add('active'); b.classList.remove('active');
         document.getElementById('s3a').hidden = false; document.getElementById('s3b').hidden = true;
-        document.getElementById('s4a').hidden = false; document.getElementById('s4b').hidden = true;
         document.getElementById('pay-sum-txt').innerHTML = '<strong>Resumen (Opción A):</strong> Reserva de 6.000€, 10% arras (máx. 5 meses), 10% al 50% de construcción, y el <strong>80% restante</strong> a la entrega de llaves.';
     } else {
         b.classList.add('active'); a.classList.remove('active');
         document.getElementById('s3a').hidden = true; document.getElementById('s3b').hidden = false;
-        document.getElementById('s4a').hidden = true; document.getElementById('s4b').hidden = false;
-        document.getElementById('pay-sum-txt').innerHTML = '<strong>Resumen (Opción B):</strong> Reserva de 6.000€, 10% arras (máx. 5 meses), 10% financiable en cómodos plazos, y el <strong>80% mensualizado</strong> hasta la entrega.';
+        document.getElementById('pay-sum-txt').innerHTML = '<strong>Resumen (Opción B):</strong> Reserva de 6.000€, 10% arras (máx. 5 meses), 10% mensualizable desde el inicio de obra hasta la mitad de obra, y el <strong>80% restante</strong> a la entrega de llaves.';
     }
 }
 
