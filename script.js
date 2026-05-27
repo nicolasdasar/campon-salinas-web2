@@ -255,31 +255,37 @@ const tPanels2 = document.querySelectorAll('.tipo-panel');
 tTabs.forEach(tab => { tab.addEventListener('click', () => { tTabs.forEach(t => t.classList.remove('active')); tPanels2.forEach(p => p.hidden = true); tab.classList.add('active'); document.getElementById('tipo-' + tab.dataset.tipo).hidden = false; }); });
 
 // ─── UNIT DATA ───
+function totalM2(u) {
+    const c = parseFloat(u.m2.replace(',', '.'));
+    const t = parseFloat(u.terrace.replace(',', '.'));
+    return (c + t).toFixed(2).replace('.', ',');
+}
+
 const units = [
-    { name:'1º B', portal:12, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,19', price:'390.000,00 €', plan:'plans_final/page_13_left.png', cat:'2dorm', floor:'Planta 1ª' },
-    { name:'1º C', portal:12, type:'Tipo C', beds:1, baths:1, m2:'44,52', terrace:'11,25', price:'260.000,00 €', plan:'plans_final/page_15_left.png', cat:'1dorm', floor:'Planta 1ª' },
-    { name:'1º D', portal:12, type:'Tipo D', beds:1, baths:1, m2:'46,79', terrace:'11,25', price:'275.000,00 €', plan:'plans_final/page_15_right.png', cat:'1dorm', floor:'Planta 1ª' },
-    { name:'2º B', portal:12, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,09', price:'385.000,00 €', plan:'plans_final/page_13_right.png', cat:'2dorm', floor:'Planta 2ª' },
-    { name:'2º A', portal:12, type:'Tipo A', beds:3, baths:2, m2:'94,85', terrace:'11,25', price:'525.000,00 €', plan:'plans_final/page_14_right.png', cat:'3dorm', floor:'Planta 2ª' },
-    { name:'3º B', portal:12, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,19', price:'395.000,00 €', plan:'plans_final/page_13_left.png', cat:'2dorm', floor:'Planta 3ª' },
-    { name:'3º C', portal:12, type:'Tipo C', beds:1, baths:1, m2:'44,52', terrace:'11,25', price:'270.000,00 €', plan:'plans_final/page_15_left.png', cat:'1dorm', floor:'Planta 3ª' },
-    { name:'3º D', portal:12, type:'Tipo D', beds:1, baths:1, m2:'46,79', terrace:'11,25', price:'280.000,00 €', plan:'plans_final/page_15_right.png', cat:'1dorm', floor:'Planta 3ª' },
-    { name:'4º B', portal:12, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,09', price:'395.000,00 €', plan:'plans_final/page_13_right.png', cat:'2dorm', floor:'Planta 4ª' },
-    { name:'4º A', portal:12, type:'Tipo A', beds:3, baths:2, m2:'94,85', terrace:'11,25', price:'535.000,00 €', plan:'plans_final/page_14_right.png', cat:'3dorm', floor:'Planta 4ª' },
-    { name:'5º Ad', portal:12, type:'Ático Dúplex Ad', beds:4, baths:3, m2:'135,06', terrace:'26,78', price:'815.000,00 €', plan:'plans_final/page_12_full.png', cat:'atico', floor:'Planta 5ª-6ª' },
-    { name:'5º Bd', portal:12, type:'Ático Dúplex Bd', beds:3, baths:3, m2:'96,01', terrace:'21,23', price:'590.000,00 €', plan:'plans_final/page_16_full.png', cat:'atico', floor:'Planta 5ª-6ª' },
-    { name:'1º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,19', price:'390.000,00 €', plan:'plans_final/page_13_left.png', cat:'2dorm', floor:'Planta 1ª' },
-    { name:'1º C', portal:14, type:'Tipo C', beds:1, baths:1, m2:'44,52', terrace:'11,25', price:'260.000,00 €', plan:'plans_final/page_15_left.png', cat:'1dorm', floor:'Planta 1ª' },
-    { name:'1º D', portal:14, type:'Tipo D', beds:1, baths:1, m2:'46,79', terrace:'11,25', price:'275.000,00 €', plan:'plans_final/page_15_right.png', cat:'1dorm', floor:'Planta 1ª' },
-    { name:'2º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,09', price:'385.000,00 €', plan:'plans_final/page_13_right.png', cat:'2dorm', floor:'Planta 2ª' },
-    { name:'2º A', portal:14, type:'Tipo A', beds:3, baths:2, m2:'94,85', terrace:'11,25', price:'525.000,00 €', plan:'plans_final/page_14_right.png', cat:'3dorm', floor:'Planta 2ª' },
-    { name:'3º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,19', price:'395.000,00 €', plan:'plans_final/page_13_left.png', cat:'2dorm', floor:'Planta 3ª' },
-    { name:'3º C', portal:14, type:'Tipo C', beds:1, baths:1, m2:'44,52', terrace:'11,25', price:'270.000,00 €', plan:'plans_final/page_15_left.png', cat:'1dorm', floor:'Planta 3ª' },
-    { name:'3º D', portal:14, type:'Tipo D', beds:1, baths:1, m2:'46,79', terrace:'11,25', price:'280.000,00 €', plan:'plans_final/page_15_right.png', cat:'1dorm', floor:'Planta 3ª' },
-    { name:'4º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,09', price:'395.000,00 €', plan:'plans_final/page_13_right.png', cat:'2dorm', floor:'Planta 4ª' },
-    { name:'4º A', portal:14, type:'Tipo A', beds:3, baths:2, m2:'94,85', terrace:'11,25', price:'535.000,00 €', plan:'plans_final/page_14_right.png', cat:'3dorm', floor:'Planta 4ª' },
-    { name:'5º Ad', portal:14, type:'Ático Dúplex Ad', beds:4, baths:3, m2:'135,06', terrace:'26,78', price:'815.000,00 €', plan:'plans_final/page_12_full.png', cat:'atico', floor:'Planta 5ª-6ª' },
-    { name:'5º Bd', portal:14, type:'Ático Dúplex Bd', beds:3, baths:3, m2:'96,01', terrace:'21,23', price:'590.000,00 €', plan:'plans_final/page_16_full.png', cat:'atico', floor:'Planta 5ª-6ª' },
+    { name:'1º B', portal:12, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,19', price:'390.000,00 €', oldPrice:'405.000,00 €', plan:'plans_final/page_13_left.png', cat:'2dorm', floor:'Planta 1ª' },
+    { name:'1º C', portal:12, type:'Tipo C', beds:1, baths:1, m2:'44,52', terrace:'11,25', price:'260.000,00 €', oldPrice:'275.000,00 €', plan:'plans_final/page_15_left.png', cat:'1dorm', floor:'Planta 1ª' },
+    { name:'1º D', portal:12, type:'Tipo D', beds:1, baths:1, m2:'46,79', terrace:'11,25', price:'275.000,00 €', oldPrice:'285.000,00 €', plan:'plans_final/page_15_right.png', cat:'1dorm', floor:'Planta 1ª' },
+    { name:'2º B', portal:12, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,09', price:'385.000,00 €', oldPrice:'405.000,00 €', plan:'plans_final/page_13_right.png', cat:'2dorm', floor:'Planta 2ª' },
+    { name:'2º A', portal:12, type:'Tipo A', beds:3, baths:2, m2:'94,85', terrace:'11,25', price:'525.000,00 €', oldPrice:'550.000,00 €', plan:'plans_final/page_14_right.png', cat:'3dorm', floor:'Planta 2ª' },
+    { name:'3º B', portal:12, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,19', price:'395.000,00 €', oldPrice:'415.000,00 €', plan:'plans_final/page_13_left.png', cat:'2dorm', floor:'Planta 3ª' },
+    { name:'3º C', portal:12, type:'Tipo C', beds:1, baths:1, m2:'44,52', terrace:'11,25', price:'270.000,00 €', oldPrice:'280.000,00 €', plan:'plans_final/page_15_left.png', cat:'1dorm', floor:'Planta 3ª' },
+    { name:'3º D', portal:12, type:'Tipo D', beds:1, baths:1, m2:'46,79', terrace:'11,25', price:'280.000,00 €', oldPrice:'290.000,00 €', plan:'plans_final/page_15_right.png', cat:'1dorm', floor:'Planta 3ª' },
+    { name:'4º B', portal:12, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,09', price:'395.000,00 €', oldPrice:'415.000,00 €', plan:'plans_final/page_13_right.png', cat:'2dorm', floor:'Planta 4ª' },
+    { name:'4º A', portal:12, type:'Tipo A', beds:3, baths:2, m2:'94,85', terrace:'11,25', price:'535.000,00 €', oldPrice:'560.000,00 €', plan:'plans_final/page_14_right.png', cat:'3dorm', floor:'Planta 4ª' },
+    { name:'5º Ad', portal:12, type:'Ático Dúplex Ad', beds:4, baths:3, m2:'135,06', terrace:'26,78', price:'815.000,00 €', oldPrice:'855.000,00 €', plan:'plans_final/page_12_full.png', cat:'atico', floor:'Planta 5ª-6ª' },
+    { name:'5º Bd', portal:12, type:'Ático Dúplex Bd', beds:3, baths:3, m2:'96,01', terrace:'21,23', price:'590.000,00 €', oldPrice:'610.000,00 €', plan:'plans_final/page_16_full.png', cat:'atico', floor:'Planta 5ª-6ª' },
+    { name:'1º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,19', price:'390.000,00 €', oldPrice:'405.000,00 €', plan:'plans_final/page_13_left.png', cat:'2dorm', floor:'Planta 1ª' },
+    { name:'1º C', portal:14, type:'Tipo C', beds:1, baths:1, m2:'44,52', terrace:'11,25', price:'260.000,00 €', oldPrice:'275.000,00 €', plan:'plans_final/page_15_left.png', cat:'1dorm', floor:'Planta 1ª' },
+    { name:'1º D', portal:14, type:'Tipo D', beds:1, baths:1, m2:'46,79', terrace:'11,25', price:'275.000,00 €', oldPrice:'285.000,00 €', plan:'plans_final/page_15_right.png', cat:'1dorm', floor:'Planta 1ª' },
+    { name:'2º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,09', price:'385.000,00 €', oldPrice:'405.000,00 €', plan:'plans_final/page_13_right.png', cat:'2dorm', floor:'Planta 2ª' },
+    { name:'2º A', portal:14, type:'Tipo A', beds:3, baths:2, m2:'94,85', terrace:'11,25', price:'525.000,00 €', oldPrice:'550.000,00 €', plan:'plans_final/page_14_right.png', cat:'3dorm', floor:'Planta 2ª' },
+    { name:'3º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,19', price:'395.000,00 €', oldPrice:'415.000,00 €', plan:'plans_final/page_13_left.png', cat:'2dorm', floor:'Planta 3ª' },
+    { name:'3º C', portal:14, type:'Tipo C', beds:1, baths:1, m2:'44,52', terrace:'11,25', price:'270.000,00 €', oldPrice:'280.000,00 €', plan:'plans_final/page_15_left.png', cat:'1dorm', floor:'Planta 3ª' },
+    { name:'3º D', portal:14, type:'Tipo D', beds:1, baths:1, m2:'46,79', terrace:'11,25', price:'280.000,00 €', oldPrice:'290.000,00 €', plan:'plans_final/page_15_right.png', cat:'1dorm', floor:'Planta 3ª' },
+    { name:'4º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,09', price:'395.000,00 €', oldPrice:'415.000,00 €', plan:'plans_final/page_13_right.png', cat:'2dorm', floor:'Planta 4ª' },
+    { name:'4º A', portal:14, type:'Tipo A', beds:3, baths:2, m2:'94,85', terrace:'11,25', price:'535.000,00 €', oldPrice:'560.000,00 €', plan:'plans_final/page_14_right.png', cat:'3dorm', floor:'Planta 4ª' },
+    { name:'5º Ad', portal:14, type:'Ático Dúplex Ad', beds:4, baths:3, m2:'135,06', terrace:'26,78', price:'815.000,00 €', oldPrice:'855.000,00 €', plan:'plans_final/page_12_full.png', cat:'atico', floor:'Planta 5ª-6ª' },
+    { name:'5º Bd', portal:14, type:'Ático Dúplex Bd', beds:3, baths:3, m2:'96,01', terrace:'21,23', price:'590.000,00 €', oldPrice:'610.000,00 €', plan:'plans_final/page_16_full.png', cat:'atico', floor:'Planta 5ª-6ª' },
 ];
 
 // ─── TIPOLOGÍAS UNIT LISTS ───
@@ -291,7 +297,7 @@ function renderTipoUnits() {
         if (!list) return;
         list.innerHTML = cats[cat].map(u => `
             <li onclick="showPlan(${u.idx})">
-                <span><strong>${u.name}</strong> — Portal ${u.portal} · ${u.floor} · ${u.m2} m² · ${u.beds} dorm.</span>
+                <span><strong>${u.name}</strong> — Portal ${u.portal} · ${u.floor} · ${totalM2(u)} m² totales (${u.m2} + ${u.terrace} m² terraza) · ${u.beds} dorm.</span>
                 <span class="see-plan">Ver plano →</span>
             </li>
         `).join('');
@@ -319,15 +325,24 @@ function renderUnits() {
         <div class="unit-card rv" style="transition-delay:${Math.min(i * 0.04, 0.4)}s">
             <div class="unit-portal">Portal ${u.portal} · ${u.floor}</div>
             <div class="unit-name">${u.name} — Portal ${u.portal}</div>
-            <div class="unit-type">${u.type} · ${u.m2} m² útiles + ${u.terrace} m² terraza</div>
+            <div class="unit-type">${u.type}</div>
             <div class="unit-details">
                 <span class="unit-det">🛏 ${u.beds} dorm.</span>
                 <span class="unit-det">🚿 ${u.baths} baño${u.baths > 1 ? 's' : ''}</span>
-                <span class="unit-det">📐 ${u.m2} m²</span>
+            </div>
+            <div class="unit-surfaces">
+                <div class="unit-surf-row"><span>Superficie total</span><strong>${totalM2(u)} m²</strong></div>
+                <div class="unit-surf-row"><span>Sup. construida</span><span>${u.m2} m²</span></div>
+                <div class="unit-surf-row"><span>Sup. terraza</span><span>${u.terrace} m²</span></div>
+            </div>
+            <div class="unit-pricing">
+                <div class="unit-old-price">${u.oldPrice}</div>
+                <div class="unit-promo-label">Precio exclusivo en promoción</div>
+                <div class="unit-promo-price">${u.price}</div>
+                <div class="unit-includes">Incluye garaje y trastero</div>
             </div>
             <div class="unit-actions">
                 <button class="u-btn u-btn-plan" onclick="showPlan(${i})">Ver Plano</button>
-                <button class="u-btn u-btn-price" onclick="showPrice(${i})">Ver Precio</button>
             </div>
         </div>
     `).join('');
@@ -344,7 +359,7 @@ function showPlan(i) {
 function showPrice(i) {
     const u = units[i];
     document.getElementById('modal-price-name').textContent = `${u.name} — Portal ${u.portal}`;
-    document.getElementById('modal-price-value').textContent = u.price;
+    document.getElementById('modal-price-value').innerHTML = `<span style="text-decoration:line-through;color:#999;font-size:1.2rem">${u.oldPrice}</span><br><span style="font-size:.65rem;color:var(--gold);letter-spacing:1px;text-transform:uppercase;font-weight:700">Precio exclusivo en promoción</span><br>${u.price}<br><span style="font-size:.75rem;color:var(--text-dark-soft);margin-top:8px;display:inline-block;font-style:italic">Incluye garaje y trastero</span>`;
     document.getElementById('price-modal').classList.add('open');
     document.body.style.overflow = 'hidden';
 }
