@@ -40,7 +40,7 @@ body{font-family:var(--font-body);background:var(--cream);color:var(--text-dark)
 /* ═══ NAV ═══ */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:72px;padding:0 var(--side-pad);display:flex;align-items:center;justify-content:space-between;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
 nav.scrolled{background:rgba(35,30,26,.96);backdrop-filter:blur(20px);border-bottom-color:var(--gold-dim)}
-.nav-logo img{height:36px;display:block;filter:brightness(0) invert(1);opacity:.9}
+.nav-logo img{height:45px;display:block;filter:brightness(0) invert(1);opacity:.9}
 .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
 .nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:color .3s}
 .nav-links a:hover{color:var(--gold-light)}
