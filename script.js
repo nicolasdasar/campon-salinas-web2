@@ -276,7 +276,7 @@ const units = [
     { name:'5º Bd', portal:12, type:'Ático Dúplex Bd', beds:3, baths:3, m2:'96,01', terrace:'21,23', price:'590.000,00 €', oldPrice:'610.000,00 €', plan:'plans_final/page_16_full.png', cat:'atico', floor:'Planta 5ª-6ª' },
     { name:'1º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,19', price:'390.000,00 €', oldPrice:'405.000,00 €', plan:'plans_final/page_13_left.png', cat:'2dorm', floor:'Planta 1ª' },
     { name:'1º C', portal:14, type:'Tipo C', beds:1, baths:1, m2:'44,52', terrace:'11,25', price:'260.000,00 €', oldPrice:'275.000,00 €', plan:'plans_final/page_15_left.png', cat:'1dorm', floor:'Planta 1ª' },
-    { name:'1º D', portal:14, type:'Tipo D', beds:1, baths:1, m2:'46,79', terrace:'11,25', price:'275.000,00 €', oldPrice:'285.000,00 €', plan:'plans_final/page_15_right.png', cat:'1dorm', floor:'Planta 1ª' },
+    { name:'1º D', portal:14, type:'Tipo D', beds:1, baths:1, m2:'46,79', terrace:'11,25', price:'275.000,00 €', oldPrice:'285.000,00 €', plan:'plans_final/page_15_right.png', cat:'1dorm', floor:'Planta 1ª', status:'reservado' },
     { name:'2º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,09', price:'385.000,00 €', oldPrice:'405.000,00 €', plan:'plans_final/page_13_right.png', cat:'2dorm', floor:'Planta 2ª' },
     { name:'2º A', portal:14, type:'Tipo A', beds:3, baths:2, m2:'94,85', terrace:'11,25', price:'525.000,00 €', oldPrice:'550.000,00 €', plan:'plans_final/page_14_right.png', cat:'3dorm', floor:'Planta 2ª' },
     { name:'3º B', portal:14, type:'Tipo B', beds:2, baths:2, m2:'67,77', terrace:'12,19', price:'395.000,00 €', oldPrice:'415.000,00 €', plan:'plans_final/page_13_left.png', cat:'2dorm', floor:'Planta 3ª' },
@@ -322,7 +322,8 @@ function renderUnits() {
     const grid = document.getElementById('units-grid');
     if (!grid) return;
     grid.innerHTML = units.map((u, i) => `
-        <div class="unit-card rv" style="transition-delay:${Math.min(i * 0.04, 0.4)}s">
+        <div class="unit-card rv${u.status === 'reservado' ? ' unit-reserved' : ''}" style="transition-delay:${Math.min(i * 0.04, 0.4)}s">
+            ${u.status === 'reservado' ? '<div class="unit-reserved-badge">Reservado</div>' : ''}
             <div class="unit-portal">Portal ${u.portal} · ${u.floor}</div>
             <div class="unit-name">${u.name} — Portal ${u.portal}</div>
             <div class="unit-type">${u.type}</div>
@@ -342,7 +343,7 @@ function renderUnits() {
                 <div class="unit-includes">Incluye garaje y trastero</div>
             </div>
             <div class="unit-actions">
-                <button class="u-btn u-btn-plan" onclick="showPlan(${i})">Ver Plano</button>
+                ${u.status === 'reservado' ? '<span class="u-btn" style="background:#aaa;color:white;text-align:center;flex:1;cursor:default">Reservado</span>' : `<button class="u-btn u-btn-plan" onclick="showPlan(${i})">Ver Plano</button>`}
             </div>
         </div>
     `).join('');
