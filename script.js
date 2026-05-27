@@ -295,7 +295,7 @@ function renderTipoUnits() {
     Object.keys(cats).forEach(cat => {
         const list = document.getElementById('units-' + cat);
         if (!list) return;
-        list.innerHTML = cats[cat].map(u => `
+        list.innerHTML = cats[cat].filter(u => u.status !== 'reservado').map(u => `
             <li onclick="showPlan(${u.idx})">
                 <span><strong>${u.name}</strong> — Portal ${u.portal} · ${u.floor} · ${totalM2(u)} m² totales (${u.m2} + ${u.terrace} m² terraza) · ${u.beds} dorm.</span>
                 <span class="see-plan">Ver plano →</span>

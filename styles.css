@@ -323,7 +323,7 @@ nav.scrolled{background:rgba(35,30,26,.96);backdrop-filter:blur(20px);border-bot
 .unit-reserved{opacity:.55;position:relative;pointer-events:none}
 .unit-reserved .unit-pricing{filter:blur(1.5px)}
 .unit-reserved-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-18deg);background:rgba(30,28,25,.88);color:white;padding:10px 32px;font-size:.85rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;z-index:10;border:2px solid rgba(197,166,109,.4);backdrop-filter:blur(4px);white-space:nowrap}
-.iva-note{max-width:1200px;margin:24px auto 0;font-size:.72rem;color:var(--text-dark-soft);text-align:center;line-height:1.6;font-style:italic;padding:0 var(--side-pad)}
+.iva-note{max-width:1200px;margin:20px auto 0;font-size:.65rem;color:#aaa;text-align:center;line-height:1.5;font-style:italic;padding:0 var(--side-pad)}
 
 /* ═══ MAP ═══ */
 #mapa{padding:0;background:var(--bg-deep)}
